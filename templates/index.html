@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title class="title">Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='crop.css') }}">
+</head>
+<body>
+    <h1>Crop Recommendation System</h1>
+    <form action="/predict" method="post">
+        <label class="nitrogen">Nitrogen:</label><input name="N"><br>
+        <label class="phosphorus">Phosphorus:</label><input name="P"><br>
+        <label class="potassium">Potassium:</label><input name="K"><br>
+        <label class="temp">Temperature:</label><input name="temperature"><br>
+        <label class="humid">Humidity:</label><input name="humidity"><br>
+        <label class="ph">pH:</label><input name="ph"><br>
+        <label class="rain">Rainfall:</label><input name="rainfall"><br>
+        <input class="button" type="submit" value="Predict">
+    </form>
+    {% if result %}
+        <h3 class="result">{{ result }}</h3>
+    {% endif %}
+</body>
+</html>
